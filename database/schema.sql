@@ -1,8 +1,8 @@
 -- ============================
--- Bank Transaction Fraud Detection Schema
+-- PH Localized Bank Schema
 -- ============================
-
-CREATE DATABASE IF NOT EXISTS bank_fraud_db;
+DROP DATABASE IF EXISTS bank_fraud_db;
+CREATE DATABASE bank_fraud_db;
 USE bank_fraud_db;
 
 -- Table: branches
@@ -44,19 +44,14 @@ CREATE TABLE transactions (
     merchant_id INT NOT NULL,
     type_id INT NOT NULL,
     amount DECIMAL(15,2) NOT NULL,
-    transaction_timestamp DATETIME NOT NULL,
-    device_type VARCHAR(50) NOT NULL, -- ATM, Web, Mobile, POS
+    transaction_timestamp DATETIME NOT NULL, -- Use DATETIME for late-night anomalies [cite: 96, 100]
+    device_type VARCHAR(50) NOT NULL, 
     location_city VARCHAR(50),
     location_country VARCHAR(50),
-    is_international TINYINT(1) DEFAULT 0, -- 0 for False, 1 for True
+    is_international TINYINT(1) DEFAULT 0,
     transaction_status ENUM('success', 'failed', 'pending') NOT NULL,
-    fraud_flag TINYINT(1) DEFAULT 0,
+    fraud_flag TINYINT(1) DEFAULT 0, -- Default to 0 [cite: 94]
     FOREIGN KEY (account_id) REFERENCES accounts(account_id),
     FOREIGN KEY (merchant_id) REFERENCES merchants(merchant_id),
     FOREIGN KEY (type_id) REFERENCES transaction_types(type_id)
 );
-
--- Indexes for Performance
-CREATE INDEX idx_transactions_account_timestamp ON transactions(account_id, transaction_timestamp);
-CREATE INDEX idx_transactions_merchant ON transactions(merchant_id);
-CREATE INDEX idx_transactions_type ON transactions(type_id);

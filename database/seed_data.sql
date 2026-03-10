@@ -3,7 +3,7 @@
 -- Goal: 5,000 Transactions with Seasonality & Time-Based Risk
 -- ==========================================================
 
-USE bank_fraud_db;
+USE bank_records_db;
 
 -- Reset all tables
 SET FOREIGN_KEY_CHECKS = 0;

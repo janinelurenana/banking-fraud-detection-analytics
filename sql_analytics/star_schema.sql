@@ -2,7 +2,7 @@
 -- Star Schema for Power BI Analytics
 -- =============================================
 
-USE bank_fraud_db;
+USE bank_records_db;
 
 -- The Central Fact Table
 -- Combines the transaction 'Fact' with necessary 'Dimensions'

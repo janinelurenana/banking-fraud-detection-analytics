@@ -1,4 +1,4 @@
-USE bank_fraud_db;
+USE bank_records_db;
 
 -- =============================================
 -- RULE 1: Large Transaction Spike

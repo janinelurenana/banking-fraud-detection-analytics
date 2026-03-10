@@ -1,9 +1,9 @@
 -- ============================
 -- PH Localized Bank Schema
 -- ============================
-DROP DATABASE IF EXISTS bank_fraud_db;
-CREATE DATABASE bank_fraud_db;
-USE bank_fraud_db;
+DROP DATABASE IF EXISTS bank_records_db;
+CREATE DATABASE bank_records_db;
+USE bank_records_db;
 
 -- Table: branches
 CREATE TABLE branches (

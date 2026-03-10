@@ -2,7 +2,7 @@
 -- Views for Fraud Detection Logic
 -- =============================================
 
-USE bank_fraud_db;
+USE bank_records_db;
 
 -- VIEW 1: Risk Scoring Engine
 -- Assigns weights based on transaction behavior

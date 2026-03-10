@@ -9,10 +9,14 @@ USE bank_fraud_db;
 CREATE OR REPLACE VIEW v_transaction_risk_scores AS
 SELECT 
     t.transaction_id,
-    t.account_id,
+    -- NEW SPIKE LOGIC:
+    -- +4 Risk if between 1AM-4AM (Late night fraud window)
+    -- +1 Risk if December (High volume pressure)
     (CASE WHEN t.amount > 50000 THEN 3 ELSE 0 END) + 
     (CASE WHEN m.merchant_risk_level = 'high' THEN 2 ELSE 0 END) + 
-    (CASE WHEN t.is_international = 1 THEN 3 ELSE 0 END) AS risk_score
+    (CASE WHEN t.is_international = 1 THEN 3 ELSE 0 END) +
+    (CASE WHEN HOUR(t.transaction_timestamp) BETWEEN 1 AND 4 THEN 4 ELSE 0 END) +
+    (CASE WHEN MONTH(t.transaction_timestamp) = 12 THEN 1 ELSE 0 END) AS risk_score
 FROM transactions t
 JOIN merchants m ON t.merchant_id = m.merchant_id;
 

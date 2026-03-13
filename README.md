@@ -17,3 +17,36 @@ dim_transaction_types
 Transformation scripts are provided in:
 
 database/star_schema.sql
+
+repo structure
+
+```
+fraud-detection-analytics/
+
+README.md
+
+data/
+  fact_transactions.csv
+  dim_customers.csv
+  dim_branches.csv
+  dim_merchants.csv
+  dim_transaction_types.csv
+  v_fraud_alerts.csv
+
+database/
+  schema.sql
+  star_schema.sql
+  data_dictionary.md
+  erd.png
+
+sql/
+  fraud_detection_rules.sql
+
+powerbi/
+  fraud_detection_dashboard.pbix
+  dashboard_screenshots/
+
+docs/
+  methodology.md
+  dashboard_explanation.md
+```

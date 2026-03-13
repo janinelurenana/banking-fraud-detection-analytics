@@ -41,6 +41,7 @@ database/
 
 sql/
   fraud_detection_rules.sql
+  risk_scoring.sql
 
 powerbi/
   fraud_detection_dashboard.pbix

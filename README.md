@@ -219,7 +219,7 @@ powerbi/dashboard_screenshots/
 Further explanation of the dashboard pages and metrics can be found in:
 
 ```
-docs/dashboard_explanation.md
+docs/fraud_dashboard_analysis.md
 ```
 
 ---
@@ -229,7 +229,7 @@ docs/dashboard_explanation.md
 The design decisions and workflow used to implement the system are documented in:
 
 ```
-docs/methodology.md
+docs/system_design.md
 ```
 
 This document explains:
@@ -317,23 +317,23 @@ data/                         # Analytical datasets used by the dashboard
   dim_transaction_types.csv   # Transaction channel metadata
   v_fraud_alerts.csv          # Fraud investigation dataset generated from risk scoring
 
-database/                     # Database design and modeling artifacts
-  schema.sql                  # Normalized relational schema (operational layer)
-  star_schema.sql             # SQL transformations creating the analytics star schema
-  data_dictionary.md          # Documentation of tables, columns, and business meaning
-  erd.png                     # Entity-Relationship diagram of the database
+database/                      # Database design and modeling artifacts
+  schema.sql                   # Normalized relational schema (operational layer)
+  star_schema.sql              # SQL transformations creating the analytics star schema
+  data_dictionary.md           # Documentation of tables, columns, and business meaning
+  erd.png                      # Entity-Relationship diagram of the database
 
-sql/                          # Fraud detection logic implemented in SQL
-  risk_scoring.sql            # Risk scoring engine for transaction evaluation
-  fraud_detection_rules.sql   # Alert classification and anomaly detection logic
+sql/                           # Fraud detection logic implemented in SQL
+  risk_scoring.sql             # Risk scoring engine for transaction evaluation
+  fraud_detection_rules.sql    # Alert classification and anomaly detection logic
 
-powerbi/                      # Dashboard implementation
+powerbi/                       # Dashboard implementation
   fraud_detection_dashboard.pbix
-  dashboard_screenshots/      # Static previews of the dashboard
+  dashboard_screenshots/       # Static previews of the dashboard
 
-docs/                         # Supporting documentation
-  methodology.md              # Design decisions and workflow explanation
-  dashboard_explanation.md    # Breakdown of dashboard pages and metrics
+docs/                          # Supporting documentation
+  system_design.md             # Design decisions and workflow explanation
+  fraud_dashboard_analysis.md  # Breakdown of dashboard pages and metrics
 ```
 
 ---

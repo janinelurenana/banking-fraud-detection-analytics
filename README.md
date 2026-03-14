@@ -110,7 +110,6 @@ dim_customers
 dim_branches
 dim_merchants
 dim_transaction_types
-v_fraud_alerts
 ```
 
 The transformation logic used to build the analytical model is implemented in:

@@ -49,42 +49,6 @@ Each stage of this pipeline is implemented and documented within this repository
 
 ---
 
-# Repository Structure
-
-```
-fraud-detection-analytics/
-
-README.md                     # Project overview and architecture explanation
-
-data/                         # Analytical datasets used by the dashboard
-  fact_transactions.csv       # Fact table containing transaction metrics
-  dim_customers.csv           # Customer/account dimension
-  dim_branches.csv            # Branch location dimension
-  dim_merchants.csv           # Merchant metadata and risk tiers
-  dim_transaction_types.csv   # Transaction channel metadata
-  v_fraud_alerts.csv          # Fraud investigation dataset generated from risk scoring
-
-database/                     # Database design and modeling artifacts
-  schema.sql                  # Normalized relational schema (operational layer)
-  star_schema.sql             # SQL transformations creating the analytics star schema
-  data_dictionary.md          # Documentation of tables, columns, and business meaning
-  erd.png                     # Entity-Relationship diagram of the database
-
-sql/                          # Fraud detection logic implemented in SQL
-  risk_scoring.sql            # Risk scoring engine for transaction evaluation
-  fraud_detection_rules.sql   # Alert classification and anomaly detection logic
-
-powerbi/                      # Dashboard implementation
-  fraud_detection_dashboard.pbix
-  dashboard_screenshots/      # Static previews of the dashboard
-
-docs/                         # Supporting documentation
-  methodology.md              # Design decisions and workflow explanation
-  dashboard_explanation.md    # Breakdown of dashboard pages and metrics
-```
-
----
-
 # Data Modeling
 
 The project follows a **two-stage data model**, separating operational banking data from analytical reporting structures.
@@ -320,6 +284,44 @@ The generated data is then transformed into the analytical datasets used by the 
 * Star Schema Data Modeling
 * Fraud Risk Analytics
 * Data Visualization (Power BI)
+
+---
+
+# Repository Structure
+The following layout organizes the project components across
+database design, SQL analytics, and dashboard implementation.
+
+```
+fraud-detection-analytics/
+
+README.md                     # Project overview and architecture explanation
+
+data/                         # Analytical datasets used by the dashboard
+  fact_transactions.csv       # Fact table containing transaction metrics
+  dim_customers.csv           # Customer/account dimension
+  dim_branches.csv            # Branch location dimension
+  dim_merchants.csv           # Merchant metadata and risk tiers
+  dim_transaction_types.csv   # Transaction channel metadata
+  v_fraud_alerts.csv          # Fraud investigation dataset generated from risk scoring
+
+database/                     # Database design and modeling artifacts
+  schema.sql                  # Normalized relational schema (operational layer)
+  star_schema.sql             # SQL transformations creating the analytics star schema
+  data_dictionary.md          # Documentation of tables, columns, and business meaning
+  erd.png                     # Entity-Relationship diagram of the database
+
+sql/                          # Fraud detection logic implemented in SQL
+  risk_scoring.sql            # Risk scoring engine for transaction evaluation
+  fraud_detection_rules.sql   # Alert classification and anomaly detection logic
+
+powerbi/                      # Dashboard implementation
+  fraud_detection_dashboard.pbix
+  dashboard_screenshots/      # Static previews of the dashboard
+
+docs/                         # Supporting documentation
+  methodology.md              # Design decisions and workflow explanation
+  dashboard_explanation.md    # Breakdown of dashboard pages and metrics
+```
 
 ---
 

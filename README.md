@@ -1,10 +1,10 @@
-# Banking Fraud Detection & Security Analytics
+# Banking Fraud Detection & Security Monitoring Analytics
 
 ## Executive Summary
 
-Financial institutions continuously monitor transaction activity to detect fraudulent behavior and protect customer accounts. This project simulates a simplified **fraud detection and analytics pipeline** used in banking environments.
+Financial institutions rely on continuous monitoring of transaction activity to detect fraud and protect customer accounts.
 
-The system demonstrates how transactional banking data can be transformed into an analytical dataset and visualized in a monitoring dashboard for investigation and risk analysis.
+This project simulates a simplified fraud detection and security analytics pipeline, demonstrating how transactional banking data can be transformed into investigative datasets and visualized in a monitoring dashboard.
 
 This project implements a **full-stack analytics workflow**, including:
 
@@ -13,7 +13,20 @@ This project implements a **full-stack analytics workflow**, including:
 * Analytical modeling using a star schema
 * Interactive dashboard development using Power BI
 
-The final output is a **fraud monitoring dashboard** that allows analysts to identify suspicious transactions, high-risk merchants, and behavioral anomalies across accounts and regions.
+The final output is a **fraud monitoring & investigation dashboard** that allows analysts to identify suspicious transactions, high-risk merchants, and behavioral anomalies across accounts and regions.
+
+---
+# Security Analysis Context
+In modern financial systems, fraud detection functions similarly to
+security monitoring systems used in cybersecurity operations.
+
+Suspicious transactions are treated as security events that must be
+identified, prioritized, and investigated by analysts.
+
+This project models a simplified fraud monitoring workflow where
+transactions are scored for risk, classified into alert tiers,
+and visualized in a monitoring dashboard for investigation.
+
 
 ---
 
@@ -42,7 +55,7 @@ SQL Fraud Detection Logic
       ↓
 Analytical Dataset (Star Schema)
       ↓
-Fraud Monitoring Dashboard
+Fraud Monitoring & Investigation Dashboard
 ```
 
 Each stage of this pipeline is implemented and documented within this repository.
@@ -97,6 +110,7 @@ dim_customers
 dim_branches
 dim_merchants
 dim_transaction_types
+v_fraud_alerts
 ```
 
 The transformation logic used to build the analytical model is implemented in:
@@ -179,7 +193,7 @@ This dataset powers the fraud monitoring dashboard.
 
 ---
 
-# Fraud Monitoring Dashboard
+# Fraud Monitoring & Investigation Dashboard
 
 The analytical dataset is visualized using an interactive dashboard built in Power BI.
 

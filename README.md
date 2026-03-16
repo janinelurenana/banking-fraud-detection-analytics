@@ -216,7 +216,7 @@ Preview images of the dashboard are available in:
 powerbi/dashboard_screenshots/
 ```
 
-Further explanation of the dashboard pages and metrics can be found in:
+Full analysis of the dashboard and metrics can be found in:
 
 ```
 docs/fraud_dashboard_analysis.md

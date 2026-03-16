@@ -195,19 +195,88 @@ This indicates that while **Crypto Exchange PH dominates fraud alerts overall**,
 
 ---
 
-## Page 3: Suspicious Accounts Investigation
+# Page 3: Suspicious Accounts Investigation
 
-**Objective:** Drill down to **accounts involved in risky transactions**.
+![Page 3: Suspicious Accounts Investigation](/power_bi/dashboard-screenshots/suspicious-accounts-investigation.png)
 
-Typical visuals:
+**Objective:**
+Enable analysts to **investigate individual accounts associated with suspicious transactions**, identify abnormal behavior patterns, and assess financial exposure linked to those accounts.
 
-* List of accounts with risk score totals
-* Transactions per account vs historical averages
-* Time-series of account-specific activity
+**Dashboard Visuals**
 
-**Insights/Use:**
+* **Account Risk Leaderboard**
+  Displays the **top 5 accounts with the highest cumulative risk scores**, along with the timestamp of their most recent transaction.
 
-> [Add your findings here – e.g., accounts with repeated alerts, unusual transaction amounts, or odd timing patterns.]
+  ```
+  LastTransaction = MAX(fact_transactions[timestamp])
+  ```
+
+* **Financial Exposure by Merchant Entity**
+  Shows which merchants contribute most to the financial exposure of flagged accounts.
+
+* **Account Behavior Scatter Chart**
+  Visualizes the **transaction history of a selected account**, allowing analysts to detect:
+
+  * unusually large transactions
+  * activity occurring at abnormal times
+  * sudden deviations from the account’s historical behavior
+
+**Dashboard Controls**
+
+**Slicers**
+
+* Alert Level (High / Medium)
+* Location
+* Merchant Entity
+* Transaction Type
+
+These filters allow analysts to **narrow investigations to specific fraud scenarios**.
+
+**Key Metric** 
+* **Financial Exposure** - Total value of transactions flagged as fraudulent for the selected account(s).
+
+---
+
+## Observations
+
+### High-Risk Accounts
+
+Two accounts stand out due to their **high cumulative risk scores and financial exposure**.
+
+**Account 35**
+
+* Most recent transaction: **Feb 24, 2026 – 07:20 AM**
+* Total financial exposure: **PHP 540,510**
+* Largest contributing merchant: **Online Sabong Portal**
+
+  * **PHP 275,540** of exposure linked to this merchant
+
+This indicates a significant portion of suspicious activity tied to **online gambling-related transactions**, which may represent higher-risk digital payment channels.
+
+---
+
+**Account 34**
+
+* Most recent transaction: **Feb 25, 2026 – 09:45 AM**
+* Total financial exposure: **PHP 334,250**
+* Largest contributing merchant: **Crypto Exchange PH**
+
+  * **PHP 206,860** linked to cryptocurrency transactions
+
+This pattern aligns with earlier findings showing **Crypto Exchange PH as a major contributor to fraud alerts across the dataset**.
+
+---
+
+## Investigation Workflow
+
+Analysts can investigate suspicious accounts by:
+
+1. Selecting an account from the **risk leaderboard**
+2. Reviewing merchant exposure associated with the account
+3. Examining the **transaction history scatter chart** to detect behavioral anomalies
+4. Applying filters to isolate transactions by location, merchant, or transaction type
+
+This workflow enables analysts to **quickly assess whether suspicious activity reflects isolated incidents or broader behavioral patterns**.
 
 ---
 
@@ -215,7 +284,7 @@ Typical visuals:
 
 **Objective:** Examine **behavioral patterns** in transactions.
 
-Typical visuals:
+visuals:
 
 * Risk score trends over time
 * Transaction types vs risk levels

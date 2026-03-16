@@ -1,4 +1,4 @@
-# Fraud Detection & Security Monitoring Dashboard – Explanation
+# Fraud Detection & Security Monitoring Dashboard Analysis
 
 
 ## Dashboard Overview
@@ -280,34 +280,148 @@ This workflow enables analysts to **quickly assess whether suspicious activity r
 
 ---
 
-## Page 4: Transaction Behavior Analysis
+# Page 4: Transaction Behavior Analysis
 
-**Objective:** Examine **behavioral patterns** in transactions.
+![Page 4: Transaction Behavior Analysis](/power_bi/dashboard-screenshots/transaction-behavior-analysis.png) 
+**Objective:**
+Analyze **transaction behavior patterns associated with fraudulent activity**, focusing on time-based trends, transaction channels, and merchant entities.
 
-visuals:
+**Dashboard Visuals**
 
-* Risk score trends over time
-* Transaction types vs risk levels
-* Late-night vs daytime transaction distribution
+* **Hourly Fraud Incident Distribution**
+  Displays the number of fraud incidents across different hours of the day to identify peak fraud windows.
 
-**Insights/Use:**
+```
+Hour = HOUR(fact_transactions[timestamp])
+```
 
-> [Add your findings here – e.g., spikes in late-night activity, risky international transactions, or unusual patterns by transaction type.]
+* **Fraud Rate by Merchant Entity**
+  Highlights merchants with the highest proportion of fraudulent transactions.
+
+* **Transactions per Fraud Category**
+  Shows how fraud incidents are distributed across different transaction contexts.
+
+* **Fraud Exposure vs Transaction Volume (Gauge)**
+  Compares the total financial value of fraudulent transactions against the total transaction volume.
 
 ---
 
-## Findings Summary
+## Observations
 
-This section is reserved for **consolidated observations and conclusions** derived from dashboard exploration.
+### Time-Based Fraud Patterns
 
-**Template:**
+Fraud activity shows a **notable concentration around midday (12:00 PM)**:
 
-* High-level trends (e.g., which branches, merchants, or accounts are most frequently flagged)
-* Behavioral patterns that may indicate fraud (e.g., late-night or unusually large transactions)
-* Risk distribution insights (e.g., percentages of high, medium, and low-risk transactions)
-* Potential areas for further investigation or system improvement
+* Financial exposure: **PHP 251,000**
+* Transactions largely associated with:
 
-> [Add your final findings here.]
+  * **Crypto Exchange PH**
+  * **Meralco Billing**
+
+Most of these incidents occur through the **Web transaction channel**, suggesting higher fraud exposure within online payment environments.
+
+---
+
+### Transaction Channel Risk
+
+The **Web transaction type accounts for the majority of fraud activity**:
+
+* **61.9% of fraudulent transactions**
+* Financial exposure: **PHP 2.37M**
+
+This reinforces earlier findings that **web-based transactions represent the highest-risk channel in the dataset**, potentially due to weaker identity verification or automated fraud attempts.
+
+---
+
+### Merchant Behavior Patterns
+
+Fraud incidents involving **Crypto Exchange PH** show recurring activity during:
+
+* **12:00 PM**
+* **7:00 PM**
+
+These transactions are primarily conducted through the **Web channel**, with a smaller portion occurring via **Mobile transactions**.
+
+This pattern suggests that **fraud involving cryptocurrency-related merchants tends to cluster within specific time windows and digital transaction channels**.
+
+---
+
+### Overall Fraud Impact
+
+Across the dataset:
+
+* **Total transaction volume:** PHP **10.58M**
+* **Total fraud exposure:** PHP **2.54M**
+
+This indicates that fraudulent transactions represent a **significant financial impact relative to the overall transaction volume**.
+
+---
+
+# Findings Summary
+
+Analysis of the transaction dataset between **January 2024 and January 2026** reveals several notable fraud patterns:
+
+* **Fraud spikes occurred in October 2024 and October 2025**, each reaching a **38.71% fraud rate**, representing the highest concentration of fraudulent activity within the dataset.
+
+* **Web-based transactions account for the majority of fraud incidents**, representing **61.9% of all fraudulent transactions** and contributing **PHP 2.37M in financial exposure**.
+
+* The merchant **Crypto Exchange PH** consistently appears as the **largest contributor to fraud alerts**, accounting for a significant portion of suspicious transactions across multiple cities and branches.
+
+* Fraud activity is **geographically concentrated in major urban centers**, particularly **Davao City and Cebu City**, where Crypto Exchange PH transactions frequently appear in fraud alerts.
+
+* **High-risk accounts show concentrated exposure to specific merchants**, including cryptocurrency exchanges and online gambling platforms.
+
+* Across the dataset, total fraudulent exposure reaches **PHP 2.54M**, compared to an overall transaction volume of **PHP 10.58M**.
+
+---
+
+# Risk Interpretation
+
+Several structural risk indicators emerge from the analysis:
+
+**1. Digital Transaction Channels Present Higher Risk**
+
+Fraud incidents are heavily concentrated in **Web-based transactions**, suggesting that online channels may present a larger attack surface compared to physical transaction channels such as POS.
+
+**2. Cryptocurrency-Related Merchants Represent Elevated Risk**
+
+Transactions involving **Crypto Exchange PH** appear consistently across multiple fraud indicators, including:
+
+* high fraud rates
+* geographic clustering
+* repeated involvement in high-risk accounts
+
+Cryptocurrency platforms may introduce additional fraud risk due to **high transaction liquidity and cross-border financial flows**.
+
+**3. Fraud Activity Shows Geographic Clustering**
+
+Fraud alerts appear concentrated within **major financial hubs such as Davao City and Cebu City**, which may reflect:
+
+* higher transaction volumes
+* greater merchant diversity
+* or targeted fraud activity within urban digital commerce environments.
+
+**4. Fraud Exposure Is Concentrated Among a Small Set of Accounts and Merchants**
+
+The investigation view highlights that a **limited number of accounts and merchants contribute disproportionately to fraud exposure**, suggesting that targeted monitoring of these entities could significantly reduce overall fraud impact.
+
+---
+
+# Operational Takeaways
+
+Based on the observed fraud patterns, several monitoring priorities emerge:
+
+* **Enhanced monitoring for Web-based transactions**, particularly those involving high-risk merchants.
+
+* **Focused fraud detection rules for cryptocurrency-related transactions**, especially when combined with abnormal transaction behavior.
+
+* **Branch-level monitoring in high-alert cities**, including Davao City and Cebu City.
+
+* **Account-level monitoring for high-risk accounts with repeated fraud alerts**, particularly those interacting with gambling or cryptocurrency platforms.
+
+* **Behavioral anomaly detection**, including unusual transaction timing or sudden spikes in transaction value.
+
+These measures reflect typical strategies used in **transaction monitoring systems within financial institutions**.
 
 ---
 
@@ -317,7 +431,3 @@ This section is reserved for **consolidated observations and conclusions** deriv
 * The dashboard **mirrors real-world investigation workflows**, but no real financial or PII data is used.
 * The dashboard emphasizes **investigative clarity over predictive modeling**, showing how analysts might prioritize alerts and monitor suspicious activity.
 
----
-**Risk Interpretation**
-
-The concentration of fraud alerts linked to Crypto Exchange PH across multiple branches suggests that cryptocurrency-related transactions may represent a higher-risk category within the dataset. Additionally, the geographic clustering of alerts in major urban centers such as Davao City and Cebu City may reflect higher transaction volumes or targeted fraud activity in these locations.

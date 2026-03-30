@@ -49,16 +49,18 @@ Key objectives include:
 The system models a simplified fraud analytics architecture used in financial institutions.
 
 ```
-Database Design
+Operational Database (OLTP)
       ↓
-SQL Fraud Detection Logic
+SQL Fraud Detection Logic (ETL/ELT)
       ↓
-Analytical Dataset (Star Schema)
+Analytical Schema (OLAP)
       ↓
 Fraud Monitoring & Investigation Dashboard
 ```
 
 Each stage of this pipeline is implemented and documented within this repository.
+
+*Note: In enterprise environments, real-world systems often incorporate a Streaming Layer (e.g., Apache Kafka) between the Operational and Analytical layers. This allows the Star Schema to update in near real-time, enabling banks to freeze a compromised card while a fraudulent transaction is still being processed.*
 
 ---
 

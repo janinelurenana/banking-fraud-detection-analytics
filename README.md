@@ -83,7 +83,7 @@ Key entities include:
 The relational schema definition can be found in:
 
 ```
-database/schema.sql
+/database/schema/operational_schema.sql
 ```
 
 The database structure is visualized in:
@@ -117,7 +117,7 @@ dim_transaction_types
 The transformation logic used to build the analytical model is implemented in:
 
 ```
-database/star_schema.sql
+/database/schema/analytical_schema.sql
 ```
 
 The resulting analytical tables are exported as CSV datasets and stored in:

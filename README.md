@@ -320,8 +320,9 @@ data/                         # Analytical datasets used by the dashboard
   v_fraud_alerts.csv          # Fraud investigation dataset generated from risk scoring
 
 database/                      # Database design and modeling artifacts
-  schema.sql                   # Normalized relational schema (operational layer)
-  star_schema.sql              # SQL transformations creating the analytics star schema
+  schema/
+      analytical_schema.sql    # SQL transformations creating the analytics star schema
+      operational_schema.sql   
   data_dictionary.md           # Documentation of tables, columns, and business meaning
   erd.png                      # Entity-Relationship diagram of the database
 

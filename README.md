@@ -15,6 +15,7 @@ This project implements a **full-stack analytics workflow**, including:
 
 The final output is a **fraud monitoring & investigation dashboard** that allows analysts to identify suspicious transactions, high-risk merchants, and behavioral anomalies across accounts and regions.
 
+* **Dashboard:** https://app.powerbi.com/view?r=eyJrIjoiNTk5MzFlZGQtZDY5ZC00MjI1LWIwZDAtZTU4N2UwMjE0MTlmIiwidCI6IjRkYTk4NTcxLWRjZWEtNDgzOS04ZmIxLTBiZGQ1ZGM5NjlmOSIsImMiOjEwfQ%3D%3D&pageName=f493b8d000ac0d07d6ab
 ---
 # Security Analysis Context
 In modern financial systems, fraud detection functions similarly to
